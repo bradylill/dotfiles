@@ -1,0 +1,12 @@
+export SHELL_HOME=~/dotfiles/shells
+source "$SHELL_HOME/alias"
+source "$SHELL_HOME/env"
+#source "$SHELL_HOME/zsh/light-weight.zsh"
+source "$SHELL_HOME/zsh/oh-my.zsh"
+ZSH_THEME='agnoster'
+local smiley="%(?,%{$fg[green]%}☺%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
+PROMPT='
+%~
+${smiley}  %{$reset_color%}'
+
+RPROMPT='$(current_branch)%{$fg[blue]%}%{$fg[blue]%} $(date "+%H:%M:%S")%{$reset_color%}'
