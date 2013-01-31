@@ -8,7 +8,7 @@ Bundle 'gmarik/vundle'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
-Bundle "pangloss/vim-javascript"
+Bundle 'pangloss/vim-javascript'
 "Clojure
 Bundle 'tpope/vim-foreplay'
 Bundle 'guns/vim-clojure-static'
