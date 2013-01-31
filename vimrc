@@ -5,11 +5,9 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
-Bundle 'sjl/badwolf'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
 Bundle "pangloss/vim-javascript"
 "Clojure
 Bundle 'tpope/vim-foreplay'
@@ -21,7 +19,7 @@ filetype plugin indent on
 syntax on
 
 "I cant spel
-"setlocal spell spelllang=en_ca
+setlocal spell spelllang=en_au
 
 set noswapfile
 
@@ -52,22 +50,13 @@ imap <Right>  <Nop>
 map j gj
 map k gk
 
-"map <space> .ef
 map <space> :Eval<CR>
-"map K :call vimclojure#DocLookup(expand("<cword>"))<CR>
-
 
 set showcmd
 
 "Clojure
 set viminfo+=!
 au VimEnter * RainbowParenthesesToggle
-"let vimclojure#HighlightBuiltins=1
-"let vimclojure#DynamicHighlighting=1
-"let vimclojure#ParenRainbow=1
-"let vimclojure#WantNailgun=1
-"let vimclojure#SplitPos = "right"
-"let vimclojure#SplitSize = 80
 
 "Ctrlp
 let g:ctrlp_arg_map = 1
