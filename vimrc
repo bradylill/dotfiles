@@ -10,7 +10,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'pangloss/vim-javascript'
 "Clojure
-Bundle 'tpope/vim-foreplay'
+Bundle 'tpope/vim-fireplace'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-classpath'
 Bundle 'kien/rainbow_parentheses.vim'
@@ -72,5 +72,3 @@ let mapleader = ","
 let maplocalleader = "."
 
 map <F3> :noh<CR>
-map <F2> :NERDTree<CR>
-map <F2> :NERDTree<CR>
