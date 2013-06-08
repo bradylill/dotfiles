@@ -1,3 +1,1 @@
-export PATH=~/bin:/usr/local/bin:$PATH
-export ANDROID_HOME=/usr/local/Cellar/android-sdk/r20.0.3/
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+export PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:$PATH
