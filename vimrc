@@ -5,15 +5,23 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
+"General
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
-Bundle 'pangloss/vim-javascript'
+Bundle 'scrooloose/syntastic'
+
 "Clojure
 Bundle 'tpope/vim-fireplace'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-classpath'
 Bundle 'kien/rainbow_parentheses.vim'
+
+"Javascript
+Bundle 'pangloss/vim-javascript'
+
+"Puppet
+Bundle 'rodjek/vim-puppet'
 
 filetype plugin indent on
 syntax on
@@ -70,5 +78,15 @@ color Tomorrow-Night
 "Key mappin
 let mapleader = ","
 let maplocalleader = "."
+
+"Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+
+let g:syntastic_puppet_checkers = ['puppet', 'puppetlint']
 
 map <F3> :noh<CR>
