@@ -23,11 +23,11 @@ Bundle 'pangloss/vim-javascript'
 "Puppet
 Bundle 'rodjek/vim-puppet'
 
+"GoLang
+Bundle 'jnwhiteh/vim-golang'
+
 filetype plugin indent on
 syntax on
-
-"I cant spel
-setlocal spell spelllang=en_au
 
 set noswapfile
 
@@ -74,6 +74,7 @@ let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 set t_Co=256
 set background=dark
 color Tomorrow-Night
+hi Normal ctermfg=252 ctermbg=none
 
 "Key mappin
 let mapleader = ","

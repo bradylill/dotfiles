@@ -1,3 +1,3 @@
-export PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:$PATH
-export RBENV_ROOT=/usr/local/var/rbenv
+export PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:~/.rbenv/bin:$PATH
+export RBENV_ROOT=~/.rbenv/
 eval "$(rbenv init -)"
