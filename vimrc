@@ -26,6 +26,9 @@ Bundle 'rodjek/vim-puppet'
 "GoLang
 Bundle 'jnwhiteh/vim-golang'
 
+"Arduino
+Bundle 'sudar/vim-arduino-syntax'
+
 filetype plugin indent on
 syntax on
 
