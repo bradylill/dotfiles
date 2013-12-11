@@ -10,6 +10,7 @@ Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'bling/vim-airline'
 
 "Clojure
 Bundle 'tpope/vim-fireplace'
@@ -78,6 +79,9 @@ color Tomorrow-Night
 "Key mappin
 let mapleader = ","
 let maplocalleader = "."
+
+"Airline
+let g:airline#extensions#tabline#enabled = 1
 
 "Syntastic
 set statusline+=%#warningmsg#
