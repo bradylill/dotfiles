@@ -10,6 +10,8 @@ Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/AutoComplPop'
+Bundle 'bling/vim-airline'
+Bundle 'rking/ag.vim'
 
 "Clojure
 Bundle 'tpope/vim-fireplace'
@@ -65,6 +67,9 @@ map <space> :Eval<CR>
 
 set showcmd
 
+"Ruby
+set tags+=gems.tags
+
 "Clojure
 set viminfo+=!
 au VimEnter * RainbowParenthesesToggle
@@ -82,5 +87,8 @@ hi Normal ctermfg=252 ctermbg=none
 "Key mappin
 let mapleader = ","
 let maplocalleader = "."
+
+"Airline
+let g:airline#extensions#tabline#enabled = 1
 
 map <F3> :noh<CR>
