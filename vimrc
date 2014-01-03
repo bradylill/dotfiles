@@ -9,7 +9,7 @@ Bundle 'gmarik/vundle'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
+Bundle 'vim-scripts/AutoComplPop'
 
 "Clojure
 Bundle 'tpope/vim-fireplace'
@@ -82,15 +82,5 @@ hi Normal ctermfg=252 ctermbg=none
 "Key mappin
 let mapleader = ","
 let maplocalleader = "."
-
-"Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-
-let g:syntastic_puppet_checkers = ['puppet', 'puppetlint']
 
 map <F3> :noh<CR>
