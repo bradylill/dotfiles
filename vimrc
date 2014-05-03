@@ -12,6 +12,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'bling/vim-airline'
 Bundle 'rking/ag.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 
 "Clojure
 Bundle 'tpope/vim-fireplace'
@@ -19,6 +20,7 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-classpath'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'guns/vim-clojure-highlight'
+Bundle 'vim-scripts/paredit.vim'
 
 "Javascript
 Bundle 'pangloss/vim-javascript'
@@ -87,7 +89,7 @@ hi Normal ctermfg=252 ctermbg=none
 
 "Key mappin
 let mapleader = ","
-let maplocalleader = "."
+let maplocalleader = ","
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -95,12 +97,19 @@ let g:airline#extensions#tabline#enabled = 1
 "Misc
 map <F3> :noh<CR>
 
-"Splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+"Navigation
+let g:tmux_navigator_no_mappings = 1
 
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-/> :TmuxNavigatePrevious<cr>
+
+"Splits
 set splitbelow
 set splitright
+
+autocmd InsertEnter * set cursorline
+autocmd InsertLeave * set nocursorline
 
