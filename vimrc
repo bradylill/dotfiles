@@ -18,6 +18,7 @@ Bundle 'tpope/vim-fireplace'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-classpath'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'guns/vim-clojure-highlight'
 
 "Javascript
 Bundle 'pangloss/vim-javascript'
