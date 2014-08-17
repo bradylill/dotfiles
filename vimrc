@@ -13,6 +13,7 @@ Bundle 'vim-scripts/AutoComplPop'
 Bundle 'bling/vim-airline'
 Bundle 'rking/ag.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'airblade/vim-gitgutter'
 
 "Clojure
 Bundle 'tpope/vim-fireplace'
@@ -93,6 +94,7 @@ let maplocalleader = ","
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='badwolf'
 
 "Misc
 map <F3> :noh<CR>
