@@ -2,6 +2,7 @@ alias rld="source ~/.zshrc"
 alias pwdc="pwd | pbcopy"
 
 alias gst="git status"
+alias gs="gst"
 alias gc="git commit"
 alias gpush="git push"
 alias gdc="git diff --color"
