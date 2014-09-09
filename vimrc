@@ -3,38 +3,39 @@ filetype off
 
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
+Plugin 'gmarik/Vundle.vim'
 
 "General
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/AutoComplPop'
-Bundle 'bling/vim-airline'
-Bundle 'rking/ag.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'tpope/vim-surround'
-Bundle 'ntpeters/vim-better-whitespace'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/AutoComplPop'
+Plugin 'bling/vim-airline'
+Plugin 'rking/ag.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-surround'
+Plugin 'ntpeters/vim-better-whitespace'
 
 "Clojure
-Bundle 'tpope/vim-fireplace'
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-classpath'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'guns/vim-clojure-highlight'
-Bundle 'vim-scripts/paredit.vim'
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-classpath'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'guns/vim-clojure-highlight'
+Plugin 'vim-scripts/paredit.vim'
 
 "Javascript
-Bundle 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 
 "Puppet
-Bundle 'rodjek/vim-puppet'
+Plugin 'rodjek/vim-puppet'
 
 "GoLang
-Bundle 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 
 "Arduino
-Bundle 'sudar/vim-arduino-syntax'
+Plugin 'sudar/vim-arduino-syntax'
 
 filetype plugin indent on
 syntax on
