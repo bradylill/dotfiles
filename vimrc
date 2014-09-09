@@ -32,7 +32,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'rodjek/vim-puppet'
 
 "GoLang
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 
 "Arduino
 Bundle 'sudar/vim-arduino-syntax'
