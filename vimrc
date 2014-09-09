@@ -14,6 +14,8 @@ Bundle 'bling/vim-airline'
 Bundle 'rking/ag.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-surround'
+Bundle 'ntpeters/vim-better-whitespace'
 
 "Clojure
 Bundle 'tpope/vim-fireplace'
@@ -114,4 +116,7 @@ set splitright
 
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
+
+"Better whitespace
+highlight ExtraWhitespace ctermbg=Blue
 
