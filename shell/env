@@ -1,3 +1,5 @@
-export PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:~/.rbenv/bin:$PATH
+export GOPATH=~/code/projects/go
 export RBENV_ROOT=~/.rbenv/
+export PATH=~/bin:/usr/local/bin:/usr/local/share/npm/bin:$RBENV_ROOT/bin:$GOPATH/bin:$PATH
+
 eval "$(rbenv init - zsh)"
