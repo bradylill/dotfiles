@@ -1,15 +1,15 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 "General
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
-Plugin 'vim-scripts/AutoComplPop'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
 Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -36,6 +36,8 @@ Plugin 'fatih/vim-go'
 
 "Arduino
 Plugin 'sudar/vim-arduino-syntax'
+
+call vundle#end()
 
 filetype plugin indent on
 syntax on
