@@ -16,6 +16,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'majutsushi/tagbar'
 
 "Clojure
 Plugin 'tpope/vim-fireplace'
@@ -134,6 +135,11 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <Leader>s <Plug>(go-implements)
+
+"Tagbar
+nmap <F2> :TagbarToggle<CR>
 
 "Make
 au Filetype c   nmap <Leader>m :make<cr>
