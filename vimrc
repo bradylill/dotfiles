@@ -38,6 +38,9 @@ Plugin 'fatih/vim-go'
 "Arduino
 Plugin 'sudar/vim-arduino-syntax'
 
+"C/C++
+"Bundle "gilligan/vim-lldb"
+
 call vundle#end()
 
 filetype plugin indent on
@@ -72,7 +75,7 @@ imap <Right>  <Nop>
 map j gj
 map k gk
 
-map <space> :Eval<CR>
+au FileType clj nmap <space> :Eval<CR>
 
 set showcmd
 
@@ -122,6 +125,7 @@ autocmd InsertLeave * set nocursorline
 
 "Better whitespace
 highlight ExtraWhitespace ctermbg=Blue
+nmap <Leader>s :StripWhitespace<CR>
 
 "Golang support (defaults from fatih/vim-go readme)
 au FileType go nmap <Leader>i <Plug>(go-info)
