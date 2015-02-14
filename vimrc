@@ -75,7 +75,9 @@ imap <Right>  <Nop>
 map j gj
 map k gk
 
-au FileType clj nmap <space> :Eval<CR>
+set backspace=2
+
+au FileType clojure nmap <space> :Eval<CR>
 
 set showcmd
 
