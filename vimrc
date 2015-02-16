@@ -38,6 +38,9 @@ Plugin 'fatih/vim-go'
 "Arduino
 Plugin 'sudar/vim-arduino-syntax'
 
+"OpenGl
+Plugin 'tikhomirov/vim-glsl'
+
 "C/C++
 "Bundle "gilligan/vim-lldb"
 
