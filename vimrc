@@ -80,7 +80,6 @@ map k gk
 
 set backspace=2
 
-au FileType clojure nmap <space> :Eval<CR>
 
 set showcmd
 
@@ -90,6 +89,12 @@ set tags+=gems.tags
 "Clojure
 set viminfo+=!
 au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+let g:clojure_align_multiline_strings = 1
+au FileType clojure nmap <space> :Eval<CR>
+au FileType clojure nmap <leader><space> :%Eval<CR>
 
 "Ctrlp
 let g:ctrlp_arg_map = 1
