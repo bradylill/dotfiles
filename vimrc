@@ -52,6 +52,11 @@ syntax on
 set noswapfile
 
 set number
+set cc=81
+set modelines=0
+set noshowmode
+set cursorline
+set relativenumber
 
 set hlsearch
 set incsearch
@@ -113,6 +118,7 @@ let maplocalleader = ","
 "Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='badwolf'
+set laststatus=2
 
 "Misc
 map <F3> :noh<CR>
