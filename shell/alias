@@ -11,3 +11,6 @@ alias ga="git add"
 
 alias ll="ls -l"
 alias l="ls -la"
+
+alias dm="docker-machine"
+alias dme="source dm-switch-env"
