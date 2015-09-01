@@ -27,7 +27,7 @@ Plugin 'guns/vim-clojure-highlight'
 Plugin 'vim-scripts/paredit.vim'
 
 "Javascript
-Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
 
 "Puppet
 Plugin 'rodjek/vim-puppet'
@@ -43,6 +43,9 @@ Plugin 'tikhomirov/vim-glsl'
 
 "C/C++
 "Bundle "gilligan/vim-lldb"
+
+"NodeJS
+Plugin 'moll/vim-node'
 
 call vundle#end()
 
