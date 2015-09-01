@@ -17,6 +17,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
 
 "Clojure
 Plugin 'tpope/vim-fireplace'
@@ -167,3 +168,7 @@ nmap <F2> :TagbarToggle<CR>
 "Make
 au Filetype c   nmap <Leader>m :make<cr>
 au Filetype cpp nmap <Leader>m :make<cr>
+
+"NerdTree
+autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
