@@ -109,6 +109,10 @@ au FileType clojure nmap <leader><space> :%Eval<CR>
 "Ctrlp
 let g:ctrlp_arg_map = 1
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_user_command = [
+    \ '.git', 'cd %s && git ls-files . -co --exclude-standard',
+    \ 'find %s -type f'
+    \ ]
 
 "Stylin
 set t_Co=256
