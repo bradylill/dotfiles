@@ -175,5 +175,5 @@ au Filetype c   nmap <Leader>m :make<cr>
 au Filetype cpp nmap <Leader>m :make<cr>
 
 "NerdTree
-autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
+map <Leader>r :NERDTreeFind<CR> :wincmd p<CR>
