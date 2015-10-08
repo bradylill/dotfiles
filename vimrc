@@ -22,8 +22,7 @@ Plugin 'scrooloose/nerdtree'
 "Clojure
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-classpath'
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'eapache/rainbow_parentheses.vim'
 Plugin 'guns/vim-clojure-highlight'
 Plugin 'vim-scripts/paredit.vim'
 
@@ -101,6 +100,8 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadChevrons
+
 let g:clojure_align_multiline_strings = 1
 au FileType clojure nmap <space> :Eval<CR>
 au FileType clojure nmap <leader><space> :%Eval<CR>
