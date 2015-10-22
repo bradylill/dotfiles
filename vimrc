@@ -18,6 +18,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
+Plugin 'lilydjwg/colorizer'
 
 "Clojure
 Plugin 'tpope/vim-fireplace'
