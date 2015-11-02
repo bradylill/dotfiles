@@ -106,6 +106,8 @@ au Syntax * RainbowParenthesesLoadChevrons
 let g:clojure_align_multiline_strings = 1
 au FileType clojure nmap <space> :Eval<CR>
 au FileType clojure nmap <leader><space> :%Eval<CR>
+au FileType clojure nmap cpt :.RunTests<CR>
+
 
 "Ctrlp
 let g:ctrlp_arg_map = 1
