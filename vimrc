@@ -7,11 +7,15 @@ Plugin 'gmarik/Vundle.vim'
 
 "General
 Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'junegunn/seoul256.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 Plugin 'rking/ag.vim'
+Plugin 'Chun-Yang/vim-action-ag'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
@@ -119,8 +123,8 @@ let g:ctrlp_user_command = [
 
 "Stylin
 set t_Co=256
+color seoul256
 set background=dark
-color Tomorrow-Night
 hi Normal ctermfg=252 ctermbg=none
 
 "Key mappin
