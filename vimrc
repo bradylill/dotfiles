@@ -184,3 +184,7 @@ au Filetype cpp nmap <Leader>m :make<cr>
 "NerdTree
 map <C-n> :NERDTreeToggle<CR>
 map <Leader>r :NERDTreeFind<CR> :wincmd p<CR>
+
+"git commit
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+autocmd FileType gitcommit set spell
