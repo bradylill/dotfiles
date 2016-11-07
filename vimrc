@@ -6,14 +6,11 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 "General
-Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'junegunn/seoul256.vim'
-Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
 Plugin 'rking/ag.vim'
 Plugin 'Chun-Yang/vim-action-ag'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -33,9 +30,6 @@ Plugin 'vim-scripts/paredit.vim'
 
 "Javascript
 Plugin 'jelera/vim-javascript-syntax'
-
-"Puppet
-Plugin 'rodjek/vim-puppet'
 
 "GoLang
 Plugin 'fatih/vim-go'
