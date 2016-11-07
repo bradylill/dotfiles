@@ -4,7 +4,7 @@ export GOBIN=~/code/opensource/go/bin
 
 export RBENV_ROOT=~/.rbenv/
 
-export PATH=~/bin:~/local/bin:/usr/local/bin:$RBENV_ROOT/bin:$GOPATH/bin:$GOROOT/bin:$PATH
+export PATH=~/bin:~/local/bin:/usr/local/bin:$RBENV_ROOT/bin:$GOPATH/bin:$GOROOT/bin:~/.npm-global/bin:$PATH
 export SHELL=`which zsh`
 
 eval "$(rbenv init - zsh)"
