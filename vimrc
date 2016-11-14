@@ -201,3 +201,7 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
+
+"git commit
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+autocmd FileType gitcommit set spell

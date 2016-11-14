@@ -8,3 +8,4 @@ export PATH=~/bin:~/local/bin:/usr/local/bin:$RBENV_ROOT/bin:$GOPATH/bin:$GOROOT
 export SHELL=`which zsh`
 
 eval "$(rbenv init - zsh)"
+export SUDO_EDIT=vim
