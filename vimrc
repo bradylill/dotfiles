@@ -8,7 +8,6 @@ Plugin 'gmarik/Vundle.vim'
 "General
 Plugin 'junegunn/seoul256.vim'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rking/ag.vim'
