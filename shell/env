@@ -9,3 +9,5 @@ export SHELL=`which zsh`
 
 eval "$(rbenv init - zsh)"
 export SUDO_EDIT=vim
+
+source ~/.cargo/env

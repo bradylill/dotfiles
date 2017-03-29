@@ -8,7 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 "General
 Plugin 'junegunn/seoul256.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rking/ag.vim'
@@ -31,6 +31,10 @@ Plugin 'vim-scripts/paredit.vim'
 
 "Javascript
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'jparise/vim-graphql'
+
+"Rust
+Plugin 'rust-lang/rust.vim'
 
 "GoLang
 Plugin 'fatih/vim-go'
@@ -54,7 +58,6 @@ syntax on
 
 set noswapfile
 
-set number
 set cc=81
 set modelines=0
 set noshowmode
@@ -103,10 +106,10 @@ au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesLoadChevrons
 
 let g:clojure_align_multiline_strings = 1
+let g:clojure_maxlines = 500
 au FileType clojure nmap <space> :Eval<CR>
 au FileType clojure nmap <leader><space> :%Eval<CR>
 au FileType clojure nmap cpt :.RunTests<CR>
-
 
 "Ctrlp
 let g:ctrlp_arg_map = 1
