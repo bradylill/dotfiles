@@ -1,11 +1,10 @@
 export SHELL_HOME=~/dotfiles/shell
-ZSH_THEME='wedisagree'
+ZSH_THEME='rawsyntax'
 
 source "$SHELL_HOME/alias"
 source "$SHELL_HOME/env"
 #source "$SHELL_HOME/zsh/light-weight.zsh"
 source "$SHELL_HOME/zsh/oh-my.zsh"
-
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
