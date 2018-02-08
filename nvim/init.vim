@@ -9,15 +9,21 @@ Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-sexp'
+Plug 'clojure-vim/acid.nvim'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
+filetype plugin indent on
 syntax on
 set noswapfile
 set cc=81
 set modelines=0
 set noshowmode
 set relativenumber
-set hlsearch
 set incsearch
 set undolevels=3000
 set nowrap
@@ -31,11 +37,21 @@ let mapleader = " "
 
 tnoremap <Esc> <C-\><C-n>
 
-nnoremap <Leader>fed :e $MYVIMRC<cr>
-nnoremap <Leader>fer :source $MYVIMRC<cr>
-nnoremap <Leader>ff  :GFiles<cr>
-nnoremap <Leader>bb  :Buffers<cr>
-nnoremap <Leader>sc  :noh<cr>
+nnoremap <leader>fed :e $MYVIMRC<cr>
+nnoremap <leader>fer :source $MYVIMRC<cr>
+nnoremap <leader>ff  :GFiles<cr>
+nnoremap <leader>fb  :Buffers<cr>
+nnoremap <leader>fc  :Colors<cr>
+nnoremap <leader>fh  :Helptags<cr>
+nnoremap <leader>sc  :noh<cr>
+nnoremap <leader>gch :e ~/code<cr>
+
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-/> :TmuxNavigatePrevious<cr>
 
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
