@@ -10,8 +10,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fireplace'
-Plug 'guns/vim-sexp'
 Plug 'clojure-vim/acid.nvim'
+Plug 'vim-scripts/paredit.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
@@ -34,6 +34,7 @@ color seoul256
 set background=dark
 
 let mapleader = " "
+let maplocalleader = ","
 
 tnoremap <Esc> <C-\><C-n>
 
