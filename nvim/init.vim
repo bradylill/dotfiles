@@ -15,6 +15,7 @@ Plug 'vim-scripts/paredit.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 filetype plugin indent on
@@ -45,7 +46,10 @@ nnoremap <leader>fb  :Buffers<cr>
 nnoremap <leader>fc  :Colors<cr>
 nnoremap <leader>fh  :Helptags<cr>
 nnoremap <leader>sc  :noh<cr>
-nnoremap <leader>gch :e ~/code<cr>
+nnoremap <leader>gs  :Gstatus<cr>
+nnoremap <leader>gb  :Gblame<cr>
+nnoremap <leader>gd  :Gdiff<cr>
+nnoremap <leader>gl  :Commits<cr>
 
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
