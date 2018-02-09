@@ -1,6 +1,6 @@
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -16,6 +16,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
+Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 filetype plugin indent on
@@ -50,6 +51,7 @@ nnoremap <leader>gs  :Gstatus<cr>
 nnoremap <leader>gb  :Gblame<cr>
 nnoremap <leader>gd  :Gdiff<cr>
 nnoremap <leader>gl  :Commits<cr>
+nnoremap <Leader>sw  :StripWhitespace<CR>
 
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -61,3 +63,5 @@ nnoremap <silent> <C-/> :TmuxNavigatePrevious<cr>
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
 autocmd FileType gitcommit set spell
+
+highlight ExtraWhitespace ctermbg=Blue
