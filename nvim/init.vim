@@ -9,7 +9,6 @@ Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fireplace'
 Plug 'clojure-vim/acid.nvim'
 Plug 'vim-scripts/paredit.vim'
 Plug 'vim-airline/vim-airline'
