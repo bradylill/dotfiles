@@ -42,17 +42,19 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <leader>fed :e $MYVIMRC<cr>
 nnoremap <leader>fer :source $MYVIMRC<cr>
 nnoremap <leader>ff  :GFiles<cr>
-nnoremap <leader>fb  :Buffers<cr>
-nnoremap <leader>fc  :Colors<cr>
-nnoremap <leader>fh  :Helptags<cr>
+nnoremap <leader>bb  :Buffers<cr>
+nnoremap <leader>cc  :Colors<cr>
+nnoremap <leader>hh  :Helptags<cr>
+nnoremap <leader>mm  :Maps<cr>
 nnoremap <leader>sc  :noh<cr>
 nnoremap <leader>gs  :Gstatus<cr>
 nnoremap <leader>gb  :Gblame<cr>
 nnoremap <leader>gd  :Gdiff<cr>
 nnoremap <leader>gl  :Commits<cr>
-nnoremap <Leader>sw  :StripWhitespace<CR>
+nnoremap <leader>sw  :StripWhitespace<cr>
+nnoremap <leader>bp  :bprevious<cr>
 
-let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_no_mappings=1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
