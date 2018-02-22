@@ -6,7 +6,4 @@ source "$SHELL_HOME/env"
 #source "$SHELL_HOME/zsh/light-weight.zsh"
 source "$SHELL_HOME/zsh/oh-my.zsh"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

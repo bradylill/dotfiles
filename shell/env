@@ -1,15 +1,6 @@
-export GOPATH=~/code/projects/go
-export GOROOT=~/code/opensource/go
-export GOBIN=~/code/opensource/go/bin
-
-export RBENV_ROOT=~/.rbenv/
-
-export PATH=~/bin:~/local/bin:/usr/local/bin:$RBENV_ROOT/bin:$GOPATH/bin:$GOROOT/bin:~/.npm-global/bin:$PATH
+export PATH=~/bin:~/local/bin:/usr/local/bin:~/.npm-global/bin:$PATH
 export SHELL=`which zsh`
-
-eval "$(rbenv init - zsh)"
-export SUDO_EDIT=vim
-
+export SUDO_EDIT=nvim
 source ~/.cargo/env
 
 eval "$(fasd --init auto)"
