@@ -66,3 +66,5 @@ autocmd InsertLeave * set nocursorline
 autocmd FileType gitcommit set spell
 
 highlight ExtraWhitespace ctermbg=Blue
+
+let g:clojure_align_multiline_strings=1
