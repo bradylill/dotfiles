@@ -1,5 +1,5 @@
 export SHELL_HOME=~/dotfiles/shell
-ZSH_THEME='rawsyntax'
+ZSH_THEME='minimal'
 
 source "$SHELL_HOME/alias"
 source "$SHELL_HOME/env"

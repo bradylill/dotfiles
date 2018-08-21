@@ -5,34 +5,39 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'clojure-vim/acid.nvim'
-Plug 'bhurlow/vim-parinfer'
-Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-fugitive'
+Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'nightsense/snow'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-flagship'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-salve'
 call plug#end()
 
-filetype plugin indent on
 syntax on
+filetype plugin indent on
 set noswapfile
 set cc=81
 set modelines=0
 set noshowmode
-set relativenumber
+set lazyredraw
+set number
 set incsearch
 set undolevels=3000
 set nowrap
 set smartindent tabstop=2 shiftwidth=2 expandtab
 set autochdir
 
-color seoul256
 set background=dark
+colorscheme snow
 
 let mapleader = " "
 let maplocalleader = ","
@@ -41,7 +46,8 @@ tnoremap <Esc> <C-\><C-n>
 
 nnoremap <leader>fed :e $MYVIMRC<cr>
 nnoremap <leader>fer :source $MYVIMRC<cr>
-nnoremap <leader>ff  :GFiles<cr>
+nnoremap <leader>fg  :GFiles<cr>
+nnoremap <leader>ff  :Files<cr>
 nnoremap <leader>bb  :Buffers<cr>
 nnoremap <leader>cc  :Colors<cr>
 nnoremap <leader>hh  :Helptags<cr>
@@ -51,8 +57,10 @@ nnoremap <leader>gs  :Gstatus<cr>
 nnoremap <leader>gb  :Gblame<cr>
 nnoremap <leader>gd  :Gdiff<cr>
 nnoremap <leader>gl  :Commits<cr>
-nnoremap <leader>sw  :StripWhitespace<cr>
 nnoremap <leader>bp  :bprevious<cr>
+nnoremap <leader>dd  :Dispatch<cr>
+nnoremap <leader>df  :FocusDispatch
+vnoremap <leader>ea  :EasyAlign<cr><C-x>
 
 let g:tmux_navigator_no_mappings=1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -61,10 +69,20 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-/> :TmuxNavigatePrevious<cr>
 
-autocmd InsertEnter * set cursorline
-autocmd InsertLeave * set nocursorline
 autocmd FileType gitcommit set spell
 
-highlight ExtraWhitespace ctermbg=Blue
+let g:strip_whitespace_on_save=1
 
 let g:clojure_align_multiline_strings=1
+
+let g:rg_command = '
+  \ rg
+  \ --colors "match:bg:yellow" --colors "match:fg:black"
+  \ --colors "match:style:nobold" --colors "path:fg:green"
+  \ --colors "path:style:bold" --colors "line:fg:yellow"
+  \ --colors "line:style:bold"
+  \ --column --line-number --no-heading --fixed-strings --ignore-case
+  \ --hidden --follow --color "always" --glob "!{.git,node_modules}/**" '
+
+command! -bang -nargs=* Find call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
