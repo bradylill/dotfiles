@@ -36,7 +36,6 @@ set incsearch
 set undolevels=3000
 set nowrap
 set smartindent tabstop=2 shiftwidth=2 expandtab
-set autochdir
 
 set background=dark
 colorscheme snow
@@ -77,6 +76,7 @@ let g:strip_whitespace_on_save=1
 
 let g:clojure_align_multiline_strings=1
 
+" FZF + RG
 let g:rg_command = '
   \ rg
   \ --colors "match:bg:yellow" --colors "match:fg:black"
