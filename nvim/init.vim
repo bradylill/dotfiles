@@ -62,6 +62,9 @@ nnoremap <leader>bp  :bprevious<cr>
 nnoremap <leader>dd  :Dispatch<cr>
 nnoremap <leader>df  :FocusDispatch
 vnoremap <leader>ea  :EasyAlign<cr><C-x>
+nnoremap <leader>cpr :RunTests<cr>
+nnoremap <leader>cpR :Eval (do (require '[clojure.tools.namespace.repl :as repl]) (repl/refresh))<cr>
+nnoremap <leader>cpe :normal cpp<cr>
 
 let g:tmux_navigator_no_mappings=1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
