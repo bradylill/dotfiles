@@ -14,6 +14,9 @@ alias l="ls -la"
 
 alias dm="docker-machine"
 alias dme="source dm-switch-env"
+alias dcu="docker-compose up -d"
+alias dcd="docker-compose down"
+alias dcp="docker-compose ps"
 
 alias e="nvim"
 alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
