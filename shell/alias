@@ -21,3 +21,5 @@ alias dcp="docker-compose ps"
 alias e="nvim"
 alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ccli="circleci"
+
+alias aa="agent-attach"
