@@ -23,3 +23,5 @@ alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ccli="circleci"
 
 alias aa="agent-attach"
+
+alias km="cat ~/atreus_layout"

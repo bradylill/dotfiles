@@ -5,13 +5,17 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'hashivim/vim-terraform'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 Plug 'nightsense/snow'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sheerun/vim-polyglot'
@@ -22,6 +26,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-salve'
 Plug 'w0rp/ale'
+Plug 'artur-shaik/vim-javacomplete2'
+Plug 'apalmer1377/factorus'
 call plug#end()
 
 syntax on
@@ -43,7 +49,7 @@ colorscheme snow
 let mapleader = " "
 let maplocalleader = ","
 
-tnoremap <Esc> <C-\><C-n>
+tnoremap <esc> <C-\><C-n>
 
 nnoremap <leader>fed :e $MYVIMRC<cr>
 nnoremap <leader>fer :source $MYVIMRC<cr>
@@ -65,6 +71,14 @@ vnoremap <leader>ea  :EasyAlign<cr><C-x>
 nnoremap <leader>cpr :RunTests<cr>
 nnoremap <leader>cpR :Eval (do (require '[clojure.tools.namespace.repl :as repl]) (repl/refresh))<cr>
 nnoremap <leader>cpe :normal cpp<cr>
+nnoremap <Leader>oa  :OmniSharpGetCodeActions<CR>
+nnoremap <Leader>or  :OmniSharpRename<CR>
+nnoremap <Leader>ou  :OmniSharpFindUsages<CR>
+nnoremap <Leader>od  :OmniSharpGotoDefinition<CR>
+nnoremap <Leader>os  :OmniSharpFindSymbol<CR>
+nnoremap <Leader>of  :OmniSharpCodeFormat<CR>
+
+
 
 let g:tmux_navigator_no_mappings=1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -74,10 +88,15 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-/> :TmuxNavigatePrevious<cr>
 
 autocmd FileType gitcommit set spell
+autocmd QuickFixCmdPost *grep* cwindow
 
 let g:strip_whitespace_on_save=1
-
 let g:clojure_align_multiline_strings=1
+
+" deoplete
+let g:deoplete#enable_at_startup=1
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<S-tab>"
 
 " FZF + RG
 let g:rg_command = '
@@ -108,6 +127,23 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
+
+" Ale
+let g:ale_linters = { 'cs': ['OmniSharp'] }
+let g:ale_sign_error = 'x'
+let g:ale_sign_warning = '!'
+
+" Omnisharp
+"let g:OmniSharp_server_type = 'roslyn'
+"let g:OmniSharp_server_path = join([expand('~'), '.omnisharp', 'run'], '/')
+"let g:OmniSharp_selector_ui = 'fzf'
+"let g:OmniSharp_start_server = 1
+autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+autocmd FileType cs setlocal shiftwidth=4 tabstop=4 expandtab
+
+" Terraform
+let g:terraform_align=1
+
+" Java
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
