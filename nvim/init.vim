@@ -5,15 +5,20 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
+"Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'nightsense/snow'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'rakr/vim-one'
+Plug 'sebdah/vim-delve'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fireplace'
