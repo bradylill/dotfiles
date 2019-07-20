@@ -17,6 +17,8 @@ alias dme="source dm-switch-env"
 alias dcu="docker-compose up -d"
 alias dcd="docker-compose down"
 alias dcp="docker-compose ps"
+alias dcl="docker-compose logs -f"
+alias dclc="docker-compose logs -f `basename $PWD`"
 
 alias e="nvim"
 alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
