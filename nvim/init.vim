@@ -41,9 +41,11 @@ set incsearch
 set undolevels=3000
 set nowrap
 set smartindent tabstop=2 shiftwidth=2 expandtab
+set hidden
 
 set background=dark
 colorscheme snow
+let g:one_allow_italics = 1
 
 let mapleader = " "
 let maplocalleader = ","
