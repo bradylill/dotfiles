@@ -71,6 +71,7 @@ nnoremap <leader>df  :FocusDispatch
 vnoremap <leader>ea  :EasyAlign<cr><C-x>
 nnoremap <leader>cpr :RunTests<cr>
 nnoremap <leader>cpR :Eval (do (require '[clojure.tools.namespace.repl :as repl]) (repl/refresh))<cr>
+nnoremap <leader>cpx :Eval (clojure.pprint/pprint *e)<cr>
 nnoremap <leader>cpe :normal cpp<cr>
 
 let g:tmux_navigator_no_mappings=1
