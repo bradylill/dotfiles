@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Linking zshrc to ~"
-ln -s ~/dotfiles/shell/zshrc ~/.zshrc
+ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
 
 echo "Downloading and linking oh-my-zsh."
 mkdir -p ~/code/opensource
