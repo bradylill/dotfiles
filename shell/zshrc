@@ -3,5 +3,4 @@ ZSH_THEME='minimal'
 
 source "$SHELL_HOME/alias"
 source "$SHELL_HOME/env"
-#source "$SHELL_HOME/zsh/light-weight.zsh"
 source "$SHELL_HOME/zsh/oh-my.zsh"
