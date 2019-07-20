@@ -24,3 +24,5 @@ alias e="nvim"
 alias wanip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias spf="ssh -f -N"
 alias ccli="circleci"
+
+alias aa="agent-attach"

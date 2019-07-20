@@ -24,10 +24,14 @@ if [[ -x "$(whence -p cargo)" ]]; then
   source ~/.cargo/env
 fi
 
-if [[ -x "$(whence -p keychain)" ]]; then
-  keychain $HOME/.ssh/id_rsa
-  source $HOME/.keychain/$NAME-sh
-fi
+agent-attach() {
+  if [[ -x "$(whence -p keychain)" ]]; then
+    keychain $HOME/.ssh/id_rsa
+    source $HOME/.keychain/$NAME-sh
+  else
+    echo "Command 'keychain' not found"
+  fi
+}
 
 if [[ -x "$(whence -p rbenv)" ]]; then
   #eval "$(rbenv init -)"
