@@ -97,7 +97,7 @@ let g:rg_command = '
   \ --colors "match:style:nobold" --colors "path:fg:green"
   \ --colors "path:style:bold" --colors "line:fg:yellow"
   \ --colors "line:style:bold"
-  \ --column --line-number --no-heading --fixed-strings --ignore-case
+  \ --column --line-number --no-heading --fixed-strings --smart-case
   \ --hidden --follow --color "always" --glob "!{.git,node_modules}/**" '
 
 command! -bang -nargs=* Find call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
