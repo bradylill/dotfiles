@@ -30,6 +30,13 @@ if [[ -x "$(whence -p keychain)" ]]; then
 fi
 
 if [[ -x "$(whence -p rbenv)" ]]; then
-  export PATH=$PATH:$GOPATH/bin
-  eval "$(rbenv init -)"
+  #eval "$(rbenv init -)"
+fi
+
+if [[ -x "$(whence -p pyenv)" ]]; then
+  #eval "$(pyenv init -)"
+fi
+
+if [[ -x "$(whence -p jira)" ]]; then
+  #eval "$(jira --completion-script-zsh)"
 fi
