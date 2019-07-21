@@ -1,15 +1,34 @@
 #!/bin/bash
 dotfiles_home="$HOME/dotfiles"
-zsh_config="$dotfiles_home/zsh"
 
-# setup zsh
-if [[ $OSTYPE == "darwin"* ]]; then
-  brew install zsh
-elif [[ -x "$(which apt)" ]]; then
- sudo apt install zsh
-else
-  echo "Don't know how to install ZSH yet"
-  exit 1
-fi
+__print_header() {
+  num_chars=$(echo $1 | wc -c)
+  for i in $(seq 0 $num_chars); do
+    printf "-"
+  done
+  printf "\n%s |\n" "$1"
+  for i in $(seq 0 $num_chars); do
+    printf "-"
+  done
+  printf "\n"
+}
 
-source "$zsh_config/enable_zsh.sh"
+zsh() {
+  zsh_config="$dotfiles_home/zsh"
+  __print_header "Installing ZSH"
+  source "$zsh_config/install.sh"
+}
+
+all() {
+  zsh;
+}
+
+list() {
+  declare -F | awk '{print $3}'
+}
+
+case "${1-}" in
+  list) list;;
+  '') list;;
+  *) $1;;
+esac

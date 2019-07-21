@@ -1,5 +1,18 @@
 #!/bin/bash
 
+# install zsh
+if [[ ! -x "$(which zsh)" ]]; then
+  if [[ $OSTYPE == "darwin"* ]]; then
+    brew install zsh
+  elif [[ -x "$(which apt)" ]]; then
+    sudo apt install zsh
+  else
+    echo "Don't know how to install ZSH yet"
+    exit 1
+  fi
+fi
+
+# setup zsh
 if [[ ! -s ~/.zshrc ]]; then
   echo "Linking zshrc to ~"
   ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
@@ -18,5 +31,3 @@ if [[ "$(basename $SHELL)" != "zsh" ]]; then
 else
   echo "Shell is already $SHELL"
 fi
-
-echo "Done setting up ZSH"
