@@ -7,6 +7,7 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 "Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
 Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -18,6 +19,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'nightsense/snow'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rakr/vim-one'
+Plug 'rbong/vim-flog'
+Plug 'rust-lang/rust.vim'
 Plug 'sebdah/vim-delve'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-dispatch'
@@ -65,6 +68,7 @@ nnoremap <leader>gs  :Gstatus<cr>
 nnoremap <leader>gb  :Gblame<cr>
 nnoremap <leader>gd  :Gdiff<cr>
 nnoremap <leader>gl  :Commits<cr>
+nnoremap <leader>gf  :Flog<cr>
 nnoremap <leader>bp  :bprevious<cr>
 nnoremap <leader>dd  :Dispatch<cr>
 nnoremap <leader>df  :FocusDispatch
@@ -73,6 +77,12 @@ nnoremap <leader>cpr :RunTests<cr>
 nnoremap <leader>cpR :Eval (do (require '[clojure.tools.namespace.repl :as repl]) (repl/refresh))<cr>
 nnoremap <leader>cpx :Eval (clojure.pprint/pprint *e)<cr>
 nnoremap <leader>cpe :normal cpp<cr>
+nnoremap <leader>rrt :RustTest<cr>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 let g:tmux_navigator_no_mappings=1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -119,6 +129,16 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
-let g:ale_sign_error = '⤫'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = 'X'
+let g:ale_sign_warning = '!'
 let g:airline#extensions#ale#enabled = 1
+
+" Vim Rooter
+let g:rooter_patterns = ['project.clj', '.git/']
+
+" Rust
+let g:rustfmt_autosave = 1
+
+" C
+let g:ale_c_gcc_options = '-std=c99 -Wall'
+let g:ale_c_gcc_executable = 'cc'
