@@ -13,18 +13,28 @@ __print_header() {
   printf "\n"
 }
 
+__install() {
+  mod_config_dir="$dotfiles_home/$1"
+  __print_header "Installing $1"
+  source "$mod_config_dir/install.sh"
+  echo "Done installing $1"
+}
+
 zsh() {
-  zsh_config="$dotfiles_home/zsh"
-  __print_header "Installing ZSH"
-  source "$zsh_config/install.sh"
+  __install "zsh"
+}
+
+nvim() {
+  __install "nvim"
 }
 
 all() {
-  zsh;
+  zsh
+  nvim
 }
 
 list() {
-  declare -F | awk '{print $3}'
+  declare -F | grep -vi "__" | awk '{print $3}'
 }
 
 case "${1-}" in
