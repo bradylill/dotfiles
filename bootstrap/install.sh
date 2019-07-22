@@ -24,12 +24,17 @@ zsh() {
   __install "zsh"
 }
 
+golang() {
+  __install "golang"
+}
+
 nvim() {
   __install "nvim"
 }
 
 all() {
   zsh
+  golang
   nvim
 }
 
