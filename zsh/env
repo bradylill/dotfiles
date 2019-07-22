@@ -2,12 +2,12 @@ export PATH=~/bin:~/local/bin:~/.local/bin:/usr/local/bin:~/.npm-global/bin:~/.r
 export SHELL=`whence -p zsh`
 export SUDO_EDIT=nvim
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [[ -x "$(whence -p fzf)" ]]; then
   export FZF_TMUX=1
   export FZF_TMUX_HEIGHT=31
   export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules}/*"'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fi
 
 if [[ -x "$(whence -p go)" ]]; then
