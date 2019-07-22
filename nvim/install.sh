@@ -21,3 +21,6 @@ if [[ ! -d ~/.config/nvim ]]; then
   mkdir -p "$HOME/.config"
   ln -s "$mod_config_dir" "$HOME/.config/nvim"
 fi
+
+# install plugins
+nvim +PlugInstall +qall
