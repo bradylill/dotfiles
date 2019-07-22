@@ -24,6 +24,10 @@ zsh() {
   __install "zsh"
 }
 
+rust() {
+  __install "rust"
+}
+
 golang() {
   __install "golang"
 }
@@ -34,6 +38,7 @@ nvim() {
 
 all() {
   zsh
+  rust
   golang
   nvim
 }

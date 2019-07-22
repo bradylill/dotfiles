@@ -1,4 +1,4 @@
-export PATH=~/bin:~/local/bin:~/.local/bin:/usr/local/bin:~/.npm-global/bin:~/.rbenv/shims:~/.rbenv/bin:$PATH
+export PATH=~/bin:~/local/bin:~/.local/bin:/usr/local/bin:~/.npm-global/bin:~/.rbenv/shims:~/.rbenv/bin:~/.cargo/bin:$PATH
 export SHELL=`whence -p zsh`
 export SUDO_EDIT=nvim
 
