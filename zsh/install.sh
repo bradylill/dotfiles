@@ -5,7 +5,7 @@ if [[ ! -x "$(which zsh)" ]]; then
   if [[ $OSTYPE == "darwin"* ]]; then
     brew install zsh
   elif [[ -x "$(which apt)" ]]; then
-    sudo apt install zsh
+    sudo apt install -y zsh
   else
     echo "Don't know how to install ZSH yet"
     exit 1
