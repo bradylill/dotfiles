@@ -18,7 +18,7 @@ if [[ ! -x "$(which go)" ]]; then
     fi
 
     sudo mkdir -p /usr/local/opt
-    sudo tar -C /usr/local/opt -xzfv "go$version.linux-amd64.tar.gz"
+    sudo tar -C /usr/local/opt -xzf "go$version.linux-amd64.tar.gz"
     sudo ln -s /usr/local/opt/go /usr/local/opt/go/libexec
     sudo ln -s /usr/local/opt/go/bin/go /usr/local/bin/go
     popd
