@@ -1,0 +1,3 @@
+[[battery.display]]
+threshold = 15
+style = "bold red"

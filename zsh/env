@@ -45,3 +45,7 @@ fi
 if [[ -x "$(whence -p jira)" ]]; then
   #eval "$(jira --completion-script-zsh)"
 fi
+
+if [[ -x "$(whence -p starship)" ]]; then
+  source <(starship init zsh --print-full-init)
+fi
