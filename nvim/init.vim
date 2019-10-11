@@ -21,15 +21,19 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'rakr/vim-one'
 Plug 'rbong/vim-flog'
 Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/nerdcommenter'
 Plug 'sebdah/vim-delve'
 Plug 'sheerun/vim-polyglot'
+Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-flagship'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-salve'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'w0rp/ale'
+Plug 'zchee/deoplete-jedi'
 call plug#end()
 
 syntax on
@@ -43,8 +47,9 @@ set number
 set incsearch
 set undolevels=3000
 set nowrap
-set smartindent tabstop=2 shiftwidth=2 expandtab
+set smartindent tabstop=2 shiftwidth=2 expandtab softtabstop=2
 set hidden
+set encoding=utf-8
 
 set background=dark
 colorscheme snow
@@ -100,6 +105,16 @@ let g:show_spaces_that_precede_tabs=1
 
 let g:clojure_align_multiline_strings=1
 
+" Deoplete
+let g:deoplete#enable_at_startup=1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Ale
+let g:ale_fix_on_save=1
+let g:ale_fixers = {
+\     'python': ['isort', 'autopep8']
+\}
+
 " FZF + RG
 let g:rg_command = '
   \ rg
@@ -142,3 +157,13 @@ let g:rustfmt_autosave = 1
 " C
 let g:ale_c_gcc_options = '-std=c99 -Wall'
 let g:ale_c_gcc_executable = 'cc'
+
+" Python
+let g:SimplyFold_docstring_preview=1
+au BufNewFile,BufRead *.py set tabstop=4
+au BufNewFile,BufRead *.py set softtabstop=4
+au BufNewFile,BufRead *.py set shiftwidth=4
+au BufNewFile,BufRead *.py set textwidth=79
+au BufNewFile,BufRead *.py set expandtab
+au BufNewFile,BufRead *.py set autoindent
+au BufNewFile,BufRead *.py set fileformat=unix
