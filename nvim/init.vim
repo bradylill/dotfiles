@@ -11,6 +11,7 @@ Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'hashivim/vim-terraform'
 Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -114,6 +115,7 @@ let g:ale_fix_on_save=1
 let g:ale_fixers = {
 \     'python': ['isort', 'autopep8']
 \}
+let b:ale_fixers = ['eslint', 'terraform']
 
 " FZF + RG
 let g:rg_command = '
@@ -146,6 +148,8 @@ let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
 let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '!'
+highlight ALEErrorSign ctermbg=none ctermfg=red
+highlight ALEWarningSign ctermbg=none ctermfg=yellow
 let g:airline#extensions#ale#enabled = 1
 
 " Vim Rooter
