@@ -5,36 +5,74 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
-"Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
+"Git
+Plug 'rbong/vim-flog'
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+
+"Navigation/Search
 Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'hashivim/vim-terraform'
-Plug 'janko-m/vim-test'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'nightsense/snow'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'rakr/vim-one'
-Plug 'rbong/vim-flog'
-Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'sebdah/vim-delve'
-Plug 'sheerun/vim-polyglot'
-Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-flagship'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
+
+"Themes/Gui
+Plug 'nightsense/snow'
+Plug 'rakr/vim-one'
+Plug 'itchyny/lightline.vim'
+Plug 'machakann/vim-highlightedyank'
+
+"Go
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'sebdah/vim-delve'
+
+"Rust
+Plug 'rust-lang/rust.vim'
+
+"Clojure
+Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-salve'
+Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
+
+"Python
 Plug 'vim-scripts/indentpython.vim'
+
+"Terraform
+Plug 'hashivim/vim-terraform'
+
+"C#
+Plug 'OmniSharp/omnisharp-vim'
+
+"Lint
 Plug 'w0rp/ale'
-Plug 'zchee/deoplete-jedi'
+
+"Text manipulation
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/nerdcommenter'
+
+"Build tools
+Plug 'tpope/vim-dispatch'
+
+"Other
+Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'sheerun/vim-polyglot'
+Plug 'janko-m/vim-test'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+"Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
+"Plug 'junegunn/goyo.vim'
+"Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+"Plug 'tpope/vim-flagship'
+"Plug 'zchee/deoplete-jedi'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
 syntax on
@@ -46,15 +84,24 @@ set noshowmode
 set lazyredraw
 set number
 set incsearch
-set undolevels=3000
+set inccommand=nosplit
+set undodir=~/.vimud
+set undofile
 set nowrap
 set smartindent tabstop=2 shiftwidth=2 expandtab softtabstop=2
 set hidden
 set encoding=utf-8
+set synmaxcol=200
+set cmdheight=2
+set updatetime=300
+set omnifunc=syntaxcomplete#Complete
 
 set background=dark
-colorscheme snow
+colorscheme one
 let g:one_allow_italics = 1
+set t_Co=256
+set termguicolors
+set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
 let mapleader = " "
 let maplocalleader = ","
@@ -84,6 +131,19 @@ nnoremap <leader>cpR :Eval (do (require '[clojure.tools.namespace.repl :as repl]
 nnoremap <leader>cpx :Eval (clojure.pprint/pprint *e)<cr>
 nnoremap <leader>cpe :normal cpp<cr>
 nnoremap <leader>rrt :RustTest<cr>
+nnoremap <leader>cfu :OmniSharpFindUsages<cr>
+nnoremap <leader>cgd :OmniSharpGotoDefinition<cr>
+nnoremap <leader>cfi :OmniSharpFindImplementations<cr>
+nnoremap <leader>cfs :OmniSharpFindSymbol<cr>
+nnoremap <leader>cfm :OmniSharpFindMembers<cr>
+nnoremap <leader>cfd :OmniSharpDocumentation<cr>
+nnoremap <leader>ctt :OmniSharpRunTest<cr>
+nnoremap <leader>ctf :OmniSharpRunTestsInFile<cr>
+nnoremap <leader>crr :OmniSharpRename<cr>
+nnoremap <leader>cca :OmniSharpGetCodeActions<cr>
+nnoremap <leader>ccf :OmniSharpCodeFormat<cr>
+nnoremap <leader>ccc :OmniSharpGlobalCodeCheck<cr>
+nnoremap <leader>cor :OmniSharpRestartAllServer<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -109,6 +169,9 @@ let g:clojure_align_multiline_strings=1
 " Deoplete
 let g:deoplete#enable_at_startup=1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+call deoplete#custom#option('sources', {
+  \ 'cs': ['omnisharp'],
+  \ })
 
 " Ale
 let g:ale_fix_on_save=1
@@ -150,13 +213,16 @@ let g:ale_sign_error = 'X'
 let g:ale_sign_warning = '!'
 highlight ALEErrorSign ctermbg=none ctermfg=red
 highlight ALEWarningSign ctermbg=none ctermfg=yellow
-let g:airline#extensions#ale#enabled = 1
 
 " Vim Rooter
 let g:rooter_patterns = ['project.clj', '.git/']
 
 " Rust
 let g:rustfmt_autosave = 1
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['~/.pyenv/shims/pyls'],
+    \ }
 
 " C
 let g:ale_c_gcc_options = '-std=c99 -Wall'
@@ -164,6 +230,7 @@ let g:ale_c_gcc_executable = 'cc'
 
 " Python
 let g:SimplyFold_docstring_preview=1
+let g:python3_host_prog = '/home/brady/.pyenv/versions/neovim3/bin/python'
 au BufNewFile,BufRead *.py set tabstop=4
 au BufNewFile,BufRead *.py set softtabstop=4
 au BufNewFile,BufRead *.py set shiftwidth=4
@@ -171,3 +238,9 @@ au BufNewFile,BufRead *.py set textwidth=79
 au BufNewFile,BufRead *.py set expandtab
 au BufNewFile,BufRead *.py set autoindent
 au BufNewFile,BufRead *.py set fileformat=unix
+
+" C#
+let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_selector_ui = 'fzf'
+
+set secure
