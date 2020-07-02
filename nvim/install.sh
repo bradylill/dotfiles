@@ -5,8 +5,6 @@ if [[ ! -x "$(which nvim)" ]]; then
   if [[ $OSTYPE == "darwin"* ]]; then
     brew install neovim
   elif [[ -x "$(which apt)" ]]; then
-    sudo apt install -y software-properties-common
-    sudo add-apt-repository -y ppa:neovim-ppa/stable
     sudo apt update
     sudo apt -y install neovim
   else
