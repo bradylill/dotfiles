@@ -95,6 +95,7 @@ set synmaxcol=200
 set cmdheight=2
 set updatetime=300
 set omnifunc=syntaxcomplete#Complete
+set list
 
 set background=dark
 colorscheme one
@@ -242,5 +243,11 @@ au BufNewFile,BufRead *.py set fileformat=unix
 " C#
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf'
+
+" Vim LightLine
+let g:lightline = { 'colorscheme': 'one' }
+let g:lightline.component = {
+      \ 'filename': '%f',
+      \}
 
 set secure
