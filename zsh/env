@@ -1,6 +1,8 @@
 export PATH=~/bin:~/local/bin:~/.local/bin:~/dotfiles/bin:/usr/local/bin:~/.npm-global/bin:~/.rbenv/shims:~/.rbenv/bin:~/.cargo/bin:~/.pyenv/bin:~/.pyenv/shims:$PATH
 export SHELL=`whence -p zsh`
 export SUDO_EDIT=nvim
+export TERM=tmux-256color
+export NVM_DIR=$HOME/.nvm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [[ -x "$(whence -p fzf)" ]]; then

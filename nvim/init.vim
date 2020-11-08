@@ -99,6 +99,8 @@ set list
 
 set background=dark
 colorscheme one
+highlight Normal guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
 let g:one_allow_italics = 1
 set t_Co=256
 set termguicolors
@@ -249,5 +251,9 @@ let g:lightline = { 'colorscheme': 'one' }
 let g:lightline.component = {
       \ 'filename': '%f',
       \}
+let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+let s:palette.inactive.middle = s:palette.normal.middle
+let s:palette.tabline.middle = s:palette.normal.middle
 
 set secure
