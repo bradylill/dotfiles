@@ -32,6 +32,14 @@ golang() {
   __install "golang"
 }
 
+python() {
+  __install "python"
+}
+
+node() {
+  __install "node"
+}
+
 nvim() {
   __install "nvim"
 }
@@ -40,6 +48,8 @@ all() {
   zsh
   rust
   golang
+  python
+  node
   nvim
 }
 

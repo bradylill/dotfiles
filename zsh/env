@@ -40,8 +40,17 @@ if [[ -x "$(whence -p rbenv)" ]]; then
   #eval "$(rbenv init -)"
 fi
 
+init-pyenv() {
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+}
+
 if [[ -x "$(whence -p pyenv)" ]]; then
   #init-pyenv
+fi
+
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+  \. "$NVM_DIR/nvm.sh"
 fi
 
 if [[ -x "$(whence -p jira)" ]]; then
@@ -51,8 +60,3 @@ fi
 if [[ -x "$(whence -p starship)" ]]; then
   source <(starship init zsh --print-full-init)
 fi
-
-init-pyenv() {
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-}
