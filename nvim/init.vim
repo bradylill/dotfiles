@@ -56,6 +56,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-dispatch'
 
 "Other
+Plug 'AndrewRadev/linediff.vim'
 Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 Plug 'janko-m/vim-test'
