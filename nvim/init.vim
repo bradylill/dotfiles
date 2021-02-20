@@ -50,9 +50,6 @@ Plug 'pangloss/vim-javascript'
 "Typescript
 Plug 'leafgarland/typescript-vim'
 
-"Lint
-Plug 'w0rp/ale'
-
 "Text manipulation
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/vim-easy-align'
@@ -62,8 +59,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-dispatch'
 
 "Other
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'AndrewRadev/linediff.vim'
-Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sheerun/vim-polyglot'
 Plug 'janko-m/vim-test'
 Plug 'autozimu/LanguageClient-neovim', {
@@ -153,7 +150,12 @@ nnoremap <leader>crr :OmniSharpRename<cr>
 nnoremap <leader>cca :OmniSharpGetCodeActions<cr>
 nnoremap <leader>ccf :OmniSharpCodeFormat<cr>
 nnoremap <leader>ccc :OmniSharpGlobalCodeCheck<cr>
-nnoremap <leader>cor :OmniSharpRestartAllServer<cr>
+nmap <leader>cod <Plug>(coc-definition)
+nmap <leader>coy <Plug>(coc-type-definition)
+nmap <leader>coi <Plug>(coc-implimentation)
+nmap <leader>cor <Plug>(coc-references)
+nmap <leader>con <Plug>(coc-rename)
+nmap <leader>cof <Plug>(coc-codeaction-line)
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -175,20 +177,6 @@ let g:strip_whitelines_at_eof=1
 let g:show_spaces_that_precede_tabs=1
 
 let g:clojure_align_multiline_strings=1
-
-" Deoplete
-let g:deoplete#enable_at_startup=1
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-call deoplete#custom#option('sources', {
-  \ 'cs': ['omnisharp'],
-  \ })
-
-" Ale
-let g:ale_fix_on_save=1
-let g:ale_fixers = {
-\     'python': ['isort', 'autopep8']
-\}
-let b:ale_fixers = ['eslint', 'terraform']
 
 " FZF + RG
 let g:rg_command = '
@@ -221,10 +209,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
-let g:ale_sign_error = 'X'
-let g:ale_sign_warning = '!'
-highlight ALEErrorSign ctermbg=none ctermfg=red
-highlight ALEWarningSign ctermbg=none ctermfg=yellow
 
 " Vim Rooter
 let g:rooter_patterns = ['project.clj', '.git/']
@@ -235,10 +219,6 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'python': ['~/.pyenv/shims/pyls'],
     \ }
-
-" C
-let g:ale_c_gcc_options = '-std=c99 -Wall'
-let g:ale_c_gcc_executable = 'cc'
 
 " Python
 let g:SimplyFold_docstring_preview=1
@@ -264,5 +244,16 @@ let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
 let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
 let s:palette.inactive.middle = s:palette.normal.middle
 let s:palette.tabline.middle = s:palette.normal.middle
+
+" COC
+let g:coc_global_extensions = [
+      \ 'coc-json',
+      \ 'coc-rust-analyzer'
+      \ ]
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-tsserver', 'coc-eslint']
+endif
+
 
 set secure
