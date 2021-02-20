@@ -64,10 +64,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'AndrewRadev/linediff.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'janko-m/vim-test'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 
 call plug#end()
 
@@ -211,10 +207,6 @@ let g:rooter_patterns = ['project.clj', '.git/']
 
 " Rust
 let g:rustfmt_autosave = 1
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['~/.pyenv/shims/pyls'],
-    \ }
 
 " Python
 let g:SimplyFold_docstring_preview=1
