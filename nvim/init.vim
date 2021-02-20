@@ -64,6 +64,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'AndrewRadev/linediff.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'janko-m/vim-test'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 call plug#end()
 
@@ -148,6 +149,9 @@ nmap <leader>coi <Plug>(coc-implimentation)
 nmap <leader>cor <Plug>(coc-references)
 nmap <leader>con <Plug>(coc-rename)
 nmap <leader>cof <Plug>(coc-codeaction-line)
+
+let g:undotree_WindowLayout = 2
+nnoremap U :UndotreeToggle<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
