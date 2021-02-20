@@ -44,6 +44,12 @@ Plug 'hashivim/vim-terraform'
 "C#
 Plug 'OmniSharp/omnisharp-vim'
 
+"Javascript
+Plug 'pangloss/vim-javascript'
+
+"Typescript
+Plug 'leafgarland/typescript-vim'
+
 "Lint
 Plug 'w0rp/ale'
 
