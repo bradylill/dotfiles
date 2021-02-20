@@ -18,6 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-projectionist'
 
 "Themes/Gui
+Plug 'junegunn/seoul256.vim'
 Plug 'nightsense/snow'
 Plug 'rakr/vim-one'
 Plug 'itchyny/lightline.vim'
@@ -93,9 +94,13 @@ set omnifunc=syntaxcomplete#Complete
 set list
 
 set background=dark
-colorscheme one
+colorscheme seoul256
 highlight Normal guibg=NONE ctermbg=NONE
 highlight SignColumn guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
+highlight GitGutterAdd guibg=NONE ctermbg=NONE
+highlight GitGutterChange guibg=NONE ctermbg=NONE
+highlight GitGutterDelete guibg=NONE ctermbg=NONE
 let g:one_allow_italics = 1
 set t_Co=256
 set termguicolors
@@ -227,7 +232,7 @@ let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_selector_ui = 'fzf'
 
 " Vim LightLine
-let g:lightline = { 'colorscheme': 'one' }
+let g:lightline = { 'colorscheme': 'seoul256' }
 let g:lightline.component = {
       \ 'filename': '%f',
       \}
