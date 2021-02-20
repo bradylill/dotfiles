@@ -68,15 +68,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-"Plug 'euclio/vim-markdown-composer', { 'do': 'cargo build --release' }
-"Plug 'junegunn/goyo.vim'
-"Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-"Plug 'tpope/vim-flagship'
-"Plug 'zchee/deoplete-jedi'
-"Plug 'prabirshrestha/asyncomplete.vim'
-"Plug 'prabirshrestha/async.vim'
-"Plug 'prabirshrestha/vim-lsp'
-"Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
 syntax on
