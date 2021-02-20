@@ -86,7 +86,7 @@ set encoding=utf-8
 set synmaxcol=200
 set cmdheight=2
 set updatetime=300
-set omnifunc=syntaxcomplete#Complete
+set shortmess+=c
 set list
 
 set background=dark
