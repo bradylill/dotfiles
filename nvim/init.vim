@@ -65,6 +65,7 @@ Plug 'AndrewRadev/linediff.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'janko-m/vim-test'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'junegunn/vim-peekaboo'
 
 call plug#end()
 
