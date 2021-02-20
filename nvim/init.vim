@@ -197,6 +197,8 @@ let g:rg_command = '
 command! -bang -nargs=* Find call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
+set grepprg=rg\ --vimgrep\ -S
+
 " GO support
 au FileType go set noexpandtab
 au FileType go set shiftwidth=4

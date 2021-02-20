@@ -60,3 +60,10 @@ fi
 if [[ -x "$(whence -p starship)" ]]; then
   source <(starship init zsh --print-full-init)
 fi
+
+rename() {
+  for i in $1*
+  do
+    mv "$i" "${i/$1/$2}"
+  done
+}
