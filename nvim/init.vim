@@ -95,10 +95,12 @@ set background=dark
 colorscheme seoul256
 highlight Normal guibg=NONE ctermbg=NONE
 highlight SignColumn guibg=NONE ctermbg=NONE
+highlight ColorColumn guibg=#262626
 highlight LineNr guibg=NONE ctermbg=NONE
 highlight GitGutterAdd guibg=NONE ctermbg=NONE
 highlight GitGutterChange guibg=NONE ctermbg=NONE
 highlight GitGutterDelete guibg=NONE ctermbg=NONE
+highlight SpellBad guifg=#ffb2ae gui=italic
 let g:one_allow_italics = 1
 set t_Co=256
 set termguicolors
