@@ -152,6 +152,7 @@ nmap <leader>coi <Plug>(coc-implimentation)
 nmap <leader>cor <Plug>(coc-references)
 nmap <leader>con <Plug>(coc-rename)
 nmap <leader>cof <Plug>(coc-codeaction-line)
+vmap <leader>cof <Plug>(coc-codeaction-selected)
 
 let g:undotree_WindowLayout = 2
 nnoremap U :UndotreeToggle<CR>
