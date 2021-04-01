@@ -27,32 +27,32 @@ Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 
 "Go
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'sebdah/vim-delve'
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
+Plug 'sebdah/vim-delve', { 'for': 'go' }
 
 "Rust
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 "Clojure
-Plug 'tpope/vim-fireplace'
-Plug 'tpope/vim-salve'
-Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-salve', { 'for': 'clojure' }
+Plug 'eraserhd/parinfer-rust', { 'for': 'clojure', 'do': 'cargo build --release'}
 
 "Python
-Plug 'vim-scripts/indentpython.vim'
+Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 
 "Terraform
-Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 
 "C#
-Plug 'OmniSharp/omnisharp-vim'
+Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 
 "Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'eliba2/vim-node-inspect'
 
 "Typescript
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 "Text manipulation
 Plug 'ntpeters/vim-better-whitespace'
@@ -120,10 +120,10 @@ nnoremap <leader>fed :e $MYVIMRC<cr>
 nnoremap <leader>fer :source $MYVIMRC<cr>
 nnoremap <leader>fg  :GFiles<cr>
 nnoremap <leader>ff  :Files<cr>
-nnoremap <leader>bb  :Buffers<cr>
-nnoremap <leader>cc  :Colors<cr>
-nnoremap <leader>hh  :Helptags<cr>
-nnoremap <leader>mm  :Maps<cr>
+nnoremap <leader>fb  :Buffers<cr>
+nnoremap <leader>fc  :Colors<cr>
+nnoremap <leader>fh  :Helptags<cr>
+nnoremap <leader>fm  :Maps<cr>
 nnoremap <leader>sc  :noh<cr>
 nnoremap <leader>gs  :Gstatus<cr>
 nnoremap <leader>gb  :Gblame<cr>
