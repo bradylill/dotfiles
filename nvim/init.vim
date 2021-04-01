@@ -4,6 +4,8 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+let g:ale_completion_enabled =1
+
 call plug#begin('~/.local/share/nvim/plugged')
 "Git
 Plug 'rbong/vim-flog'
@@ -47,6 +49,7 @@ Plug 'OmniSharp/omnisharp-vim'
 
 "Javascript
 Plug 'pangloss/vim-javascript'
+Plug 'eliba2/vim-node-inspect'
 
 "Typescript
 Plug 'leafgarland/typescript-vim'
@@ -59,8 +62,10 @@ Plug 'scrooloose/nerdcommenter'
 "Build tools
 Plug 'tpope/vim-dispatch'
 
+"LSP
+Plug 'dense-analysis/ale'
+
 "Other
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'AndrewRadev/linediff.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'janko-m/vim-test'
@@ -72,7 +77,7 @@ call plug#end()
 syntax on
 filetype plugin indent on
 set noswapfile
-set cc=81
+set cc=100
 set modelines=0
 set noshowmode
 set lazyredraw
@@ -146,13 +151,17 @@ nnoremap <leader>crr :OmniSharpRename<cr>
 nnoremap <leader>cca :OmniSharpGetCodeActions<cr>
 nnoremap <leader>ccf :OmniSharpCodeFormat<cr>
 nnoremap <leader>ccc :OmniSharpGlobalCodeCheck<cr>
-nmap <leader>cod <Plug>(coc-definition)
-nmap <leader>coy <Plug>(coc-type-definition)
-nmap <leader>coi <Plug>(coc-implimentation)
-nmap <leader>cor <Plug>(coc-references)
-nmap <leader>con <Plug>(coc-rename)
-nmap <leader>cof <Plug>(coc-codeaction-line)
-vmap <leader>cof <Plug>(coc-codeaction-selected)
+nnoremap <leader>al  :ALELint<cr>
+nnoremap <leader>ad  :ALEGoToDefinition<cr>
+nnoremap <leader>at  :ALEGoToTypeDefinition<cr>
+nnoremap <leader>aD  :ALEDocumentation<cr>
+nnoremap <leader>ai  :ALEImport<cr>
+nnoremap <leader>aoi :ALEOrganizeImports<cr>
+nnoremap <leader>ar  :ALEFindReferences<cr>
+nnoremap <leader>an  :ALERename<cr>
+nnoremap <leader>as  :ALESymbolSearch<cr>
+nnoremap <leader>af  :ALECodeAction<cr>
+vnoremap <leader>af  :ALECodeAction<cr>
 
 let g:undotree_WindowLayout = 2
 nnoremap U :UndotreeToggle<CR>
@@ -177,6 +186,53 @@ let g:strip_whitelines_at_eof=1
 let g:show_spaces_that_precede_tabs=1
 
 let g:clojure_align_multiline_strings=1
+
+" ALE
+"let g:ale_lint_delay = 0
+"let g:ale_lint_on_insert_leave = 0
+"let g:ale_lint_on_save = 0
+"let g:ale_lint_on_enter = 0
+"let g:ale_lint_on_filetype_changed = 0
+"let g:ale_rust_rls_toolchain = ''
+"let g:ale_rust_rls_executable = 'rust-analyzer'
+"let g:ale_linters = {
+      "\ 'rust': ['analyzer']
+      "\}
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\   'rust': ['rustfmt'],
+\}
+
+let g:ale_completion_delay = 10
+let g:ale_completion_symbols = {
+      \ 'text': '',
+      \ 'method': '',
+      \ 'function': '',
+      \ 'constructor': '',
+      \ 'field': '',
+      \ 'variable': '',
+      \ 'class': '',
+      \ 'interface': '',
+      \ 'module': '',
+      \ 'property': '',
+      \ 'unit': 'unit',
+      \ 'value': 'val',
+      \ 'enum': '',
+      \ 'keyword': 'keyword',
+      \ 'snippet': '',
+      \ 'color': 'color',
+      \ 'file': '',
+      \ 'reference': 'ref',
+      \ 'folder': '',
+      \ 'enum member': '',
+      \ 'constant': '',
+      \ 'struct': '',
+      \ 'event': 'event',
+      \ 'operator': '',
+      \ 'type_parameter': 'type param',
+      \ '<default>': 'v'
+      \ }
 
 " FZF + RG
 let g:rg_command = '
@@ -240,16 +296,5 @@ let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
 let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
 let s:palette.inactive.middle = s:palette.normal.middle
 let s:palette.tabline.middle = s:palette.normal.middle
-
-" COC
-let g:coc_global_extensions = [
-      \ 'coc-json',
-      \ 'coc-rust-analyzer'
-      \ ]
-
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-  let g:coc_global_extensions += ['coc-tsserver', 'coc-eslint']
-endif
-
 
 set secure
