@@ -1,0 +1,28 @@
+#!/bin/bash
+
+AWS_PROFILE=$(aws configure list-profiles | fzf)
+
+if [[ -z ${AWS_PROFILE} ]]; then
+  echo "No profile selected"
+else
+  echo "using: $AWS_PROFILE"
+
+  log_group_name=$(aws logs describe-log-groups \
+    --profile "$AWS_PROFILE" \
+    --region ca-central-1 \
+    --query 'logGroups[*].[logGroupName]' \
+    --output text | fzf)
+
+  if [[ -z ${log_group_name} ]]; then
+    echo "No log group selected"
+  else
+    echo "Following $log_group_name ..."
+
+    aws logs tail "$log_group_name" \
+      --profile "$AWS_PROFILE" \
+      --region ca-central-1 \
+      --follow \
+      --format "short" \
+      --since "5m"
+  fi
+fi
