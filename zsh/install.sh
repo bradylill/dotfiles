@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # install zsh
-if [[ ! -x "$(which zsh)" ]]; then
+if [[ ! -x "$(command -v zsh)" ]]; then
   if [[ $OSTYPE == "darwin"* ]]; then
     brew install zsh
-  elif [[ -x "$(which apt)" ]]; then
+  elif [[ -x "$(command -v apt)" ]]; then
     sudo apt install -y zsh
   else
     echo "Don't know how to install ZSH yet"
@@ -16,13 +16,6 @@ fi
 if [[ ! -s "$HOME/.zshrc" ]]; then
   echo "Linking zshrc to $HIME"
   ln -s "$mod_config_dir/zshrc" "$HOME/.zshrc"
-fi
-
-if [[ ! -s "$HOME/.oh-my-zsh" ]]; then
-  echo "Downloading and linking oh-my-zsh."
-  mkdir -p "$HOME/code/opensource"
-  git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME/code/opensource/oh-my-zsh"
-  ln -s "$HOME/code/opensource/oh-my-zsh" "$HOME/.oh-my-zsh"
 fi
 
 if [[ "$(basename $SHELL)" != "zsh" ]]; then
