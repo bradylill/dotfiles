@@ -1,6 +1,12 @@
 #!/bin/bash
 
-auth_sock=$(find /tmp/ssh-* -uid $(id -u) | rg agent | xargs ls -l --time-style=long-iso | awk '{ print $6, $7, $8 }' | sort | fzf | awk '{ print $3 }')
+auth_sock=$( \
+	find /tmp/ssh-* -uid $(id -u) | \
+	rg agent | \
+	xargs ls -l --time-style=long-iso | \
+	awk '{ print $6, $7, $8 }' | \
+	sort -r | fzf | awk '{ print $3 }' \
+)
 pid=$(echo $auth_sock | cut -d '.' -f2)
 pid=$(( $pid + 1 ))
 
