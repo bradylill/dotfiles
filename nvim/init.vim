@@ -4,7 +4,7 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-let g:ale_completion_enabled =1
+let g:ale_completion_enabled=1
 
 call plug#begin('~/.local/share/nvim/plugged')
 "Git
@@ -37,6 +37,8 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'eraserhd/parinfer-rust', { 'for': 'clojure', 'do': 'cargo build --release'}
+"Plug 'guns/vim-sexp',    {'for': 'clojure'}
+"Plug 'liquidz/vim-iced', {'for': 'clojure'}
 
 "Python
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
@@ -109,7 +111,7 @@ highlight SpellBad guifg=#ffb2ae gui=italic
 let g:one_allow_italics = 1
 set t_Co=256
 set termguicolors
-set listchars=nbsp:¬,extends:»,precedes:«,trail:•
+set listchars=tab:\ \ ,nbsp:¬,extends:»,precedes:«,trail:•
 
 let mapleader = " "
 let maplocalleader = ","
