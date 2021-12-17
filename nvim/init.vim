@@ -4,6 +4,9 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+
 let g:ale_completion_enabled=1
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -31,7 +34,7 @@ Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries' }
 Plug 'sebdah/vim-delve', { 'for': 'go' }
 
 "Rust
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'rust-lang/rust.vim'
 
 "Clojure
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -197,9 +200,9 @@ let g:clojure_align_multiline_strings=1
 "let g:ale_lint_on_filetype_changed = 0
 "let g:ale_rust_rls_toolchain = ''
 "let g:ale_rust_rls_executable = 'rust-analyzer'
-"let g:ale_linters = {
-      "\ 'rust': ['analyzer']
-      "\}
+let g:ale_linters = {
+      \ 'rust': ['analyzer']
+      \}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
@@ -276,7 +279,7 @@ let g:rustfmt_autosave = 1
 
 " Python
 let g:SimplyFold_docstring_preview=1
-let g:python3_host_prog = '/home/brady/.pyenv/versions/neovim3/bin/python'
+let g:python3_host_prog = '/home/brady/.pyenv/versions/neovim/bin/python'
 au BufNewFile,BufRead *.py set tabstop=4
 au BufNewFile,BufRead *.py set softtabstop=4
 au BufNewFile,BufRead *.py set shiftwidth=4
