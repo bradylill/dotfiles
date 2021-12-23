@@ -1,12 +1,14 @@
 #!/bin/bash
 
 # install nvim
-if [[ ! -x "$(which nvim)" ]]; then
+if [[ ! -x "$(command -v nvim)" ]]; then
   if [[ $OSTYPE == "darwin"* ]]; then
     brew install neovim
-  elif [[ -x "$(which apt)" ]]; then
+  elif [[ -x "$(command -v apt)" ]]; then
     sudo apt update
     sudo apt -y install neovim
+  elif [[ -x "$(command -v dnf)" ]]; then
+    sudo dnf install -y neovim
   else
     echo "Don't know how to install ZSH yet"
     exit 1
