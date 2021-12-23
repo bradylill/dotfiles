@@ -3,9 +3,9 @@
 if [[ ! -x "$(command -v go)" ]]; then
   if [[ $OSTYPE == "darwin"* ]]; then
     brew install go
-  elif [[ -x "$(command -v apt)" ]]; then
-    version="1.16.3"
-    checksum="951a3c7c6ce4e56ad883f97d9db74d3d6d80d5fec77455c6ada6c1f7ac4776d2"
+  elif [[ -x "$(command -v apt)" ]] || [[ -x "$(command -v dnf)" ]]; then
+    version="1.17.3"
+    checksum="550f9845451c0c94be679faf116291e7807a8d78b43149f9506c1b15eb89008c"
 
     pushd /tmp || exit 1
     if [[ ! -r "go$version.linux-amd64.tar.gz" ]]; then
