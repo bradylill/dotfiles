@@ -1,6 +1,7 @@
 export PATH=~/bin:~/local/bin:~/.local/bin:~/dotfiles/bin:/usr/local/bin:~/.npm-global/bin:~/.rbenv/shims:~/.rbenv/bin:~/.cargo/bin:~/.pyenv/bin:~/.pyenv/shims:$PATH
 export SHELL=`whence -p zsh`
 export SUDO_EDIT=nvim
+export EDITOR=nvim
 export TERM=tmux-256color
 export NVM_DIR=$HOME/.nvm
 
@@ -37,7 +38,7 @@ agent-attach() {
 }
 
 if [[ -x "$(whence -p rbenv)" ]]; then
-  #eval "$(rbenv init -)"
+  eval "$(rbenv init -)"
 fi
 
 init-pyenv() {
@@ -46,7 +47,7 @@ init-pyenv() {
 }
 
 if [[ -x "$(whence -p pyenv)" ]]; then
-  #init-pyenv
+  init-pyenv
 fi
 
 if [[ -s "$NVM_DIR/nvm.sh" ]]; then
@@ -54,7 +55,7 @@ if [[ -s "$NVM_DIR/nvm.sh" ]]; then
 fi
 
 if [[ -x "$(whence -p jira)" ]]; then
-  #eval "$(jira --completion-script-zsh)"
+  eval "$(jira --completion-script-zsh)"
 fi
 
 if [[ -x "$(whence -p starship)" ]]; then
