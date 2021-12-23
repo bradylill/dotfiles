@@ -15,6 +15,13 @@ if [[ ! -x "$(which pyenv)" ]]; then
        wget curl llvm libncurses5-dev xz-utils \
        tk-dev libxml2-dev libxmlsec1-dev libffi-dev \
        liblzma-dev
+  elif [[ -x "$(which dnf)" ]]; then
+     git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+     git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+
+     sudo dnf install -y \
+       bzip2-devel readline-devel sqlite-devel \
+       tk-devel gdbm-devel
   else
     echo "Don't know how to install python yet"
     exit 1
