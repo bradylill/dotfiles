@@ -2,11 +2,11 @@
 set -o nounset
 set -o errexit
 
-if [[ ! -x "$(which nvm)" ]]; then
+if [[ ! -z "$(command -v nvm)" ]]; then
   if [[ $OSTYPE == "darwin"* ]]; then
     echo "Don't know how to install node on mac yet"
     exit 1
-  elif [[ -x "$(which apt)" ]]; then
+  elif [[ -x "$(command -v apt)" ]] || [[ -x "$(command -v dnf)" ]]; then
       git clone https://github.com/nvm-sh/nvm.git ~/.nvm
       pushd ~/.nvm
       git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
@@ -19,5 +19,4 @@ if [[ ! -x "$(which nvm)" ]]; then
   fi
 else
   echo "node already installed"
-  nvm --version
 fi
