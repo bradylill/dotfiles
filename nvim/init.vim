@@ -4,10 +4,8 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-set completeopt=menuone,noinsert,noselect
+set completeopt=menu,menuone,noselect
 set shortmess+=c
-
-let g:ale_completion_enabled=1
 
 call plug#begin('~/.local/share/nvim/plugged')
 "Git
@@ -50,7 +48,7 @@ Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 
 "C#
-Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
+Plug 'OmniSharp/omnisharp-vim'
 
 "Javascript
 Plug 'pangloss/vim-javascript'
@@ -68,7 +66,12 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-dispatch'
 
 "LSP
+Plug 'neovim/nvim-lspconfig'
 Plug 'dense-analysis/ale'
+
+"Autocomplete
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 
 "Other
 Plug 'AndrewRadev/linediff.vim'
@@ -192,17 +195,39 @@ let g:show_spaces_that_precede_tabs=1
 
 let g:clojure_align_multiline_strings=1
 
+" LSP
+lua << EOF
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+  local pid = vim.fn.getpid()
+  local omnisharp_bin = "/home/brady/.cache/omnisharp-vim/omnisharp-roslyn/run"
+  require'lspconfig'.omnisharp.setup {
+    capabilities = capabilities,
+    cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) };
+  }
+EOF
+
+" Autocompletion
+lua << EOF
+  local cmp = require 'cmp'
+  cmp.setup {
+    mapping = {
+      ['<C-p>'] = cmp.mapping.select_prev_item(),
+      ['<C-n>'] = cmp.mapping.select_next_item(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = true,
+      },
+    },
+    sources = {
+      { name = 'nvim_lsp' },
+    },
+  }
+EOF
+
 " ALE
-"let g:ale_lint_delay = 0
-"let g:ale_lint_on_insert_leave = 0
-"let g:ale_lint_on_save = 0
-"let g:ale_lint_on_enter = 0
-"let g:ale_lint_on_filetype_changed = 0
-"let g:ale_rust_rls_toolchain = ''
-"let g:ale_rust_rls_executable = 'rust-analyzer'
-let g:ale_linters = {
-      \ 'rust': ['analyzer']
-      \}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
