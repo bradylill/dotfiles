@@ -24,6 +24,10 @@ zsh() {
   __install "zsh"
 }
 
+fish() {
+  __install "fish"
+}
+
 rust() {
   __install "rust"
 }
@@ -45,7 +49,7 @@ nvim() {
 }
 
 all() {
-  zsh
+  fish
   rust
   golang
   python

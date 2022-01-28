@@ -21,7 +21,7 @@ if [[ ! -x "$(which pyenv)" ]]; then
 
      sudo dnf install -y \
        bzip2-devel readline-devel sqlite-devel \
-       tk-devel gdbm-devel
+       tk-devel gdbm-devel libffi-devel
   else
     echo "Don't know how to install python yet"
     exit 1
