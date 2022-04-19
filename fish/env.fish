@@ -1,10 +1,12 @@
-set -x PATH ~/bin ~/local/bin ~/.local/bin ~/dotfiles/bin /usr/local/bin ~/.npm-global/bin ~/.rbenv/shims ~/.rbenv/bin ~/.cargo/bin ~/.pyenv/bin ~/.pyenv/shims ~/.fzf/bin $PATH
-set -x SHELL (which fish)
-set -x SUDO_EDIT (which nvim)
-set -x EDITOR (which nvim)
-set -x TERM tmux-256color
-set -x NVM_DIR $HOME/.nvm
-set -x GPG_TTY (tty)
+set -gx NODE_LTS_GALLIUM (cat ~/.nvm/alias/lts/gallium)
+set -gx PATH /usr/local/sbin /usr/bin /usr/sbin /usr/local/bin
+fish_add_path -P ~/bin ~/local/bin ~/.local/bin ~/dotfiles/bin /usr/local/bin ~/.npm-global/bin ~/.rbenv/shims ~/.rbenv/bin ~/.cargo/bin ~/.pyenv/bin ~/.pyenv/shims ~/.fzf/bin ~/.nvm/versions/node/$NODE_LTS_GALLIUM/bin
+set -gx SHELL (which fish)
+set -gx SUDO_EDIT (which nvim)
+set -gx EDITOR (which nvim)
+set -gx TERM tmux-256color
+set -gx NVM_DIR $HOME/.nvm
+set -gx GPG_TTY (tty)
 
 if command -vq fzf
   set -x FZF_TMUX 1
@@ -16,8 +18,7 @@ end
 if command -vq go
   set -x GOPATH $HOME/go
   set -x GOROOT /usr/local/opt/go/libexec
-  set -x PATH $PATH $GOPATH/bin
-  set -x PATH $PATH $GOROOT/bin
+  fish_add_path -P $GOPATH/bin $GOROOT/bin
 end
 
 if test (umask) = "000"
