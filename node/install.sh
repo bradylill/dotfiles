@@ -2,7 +2,7 @@
 set -o nounset
 set -o errexit
 
-if [[ ! -z "$(command -v nvm)" ]]; then
+if [[ ! -x "$(command -v nvm)" ]]; then
   if [[ $OSTYPE == "darwin"* ]]; then
     echo "Don't know how to install node on mac yet"
     exit 1
