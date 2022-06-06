@@ -20,4 +20,8 @@ if [[ ! -d ~/.config/nvim ]]; then
   echo "Linking nvim to $HOME/.config/nvim"
   mkdir -p "$HOME/.config"
   ln -s "$mod_config_dir" "$HOME/.config/nvim"
+
+  # plug.vim
+  mkdir -p "$HOME/.local/share/nvim/site/autoload"
+  ln -s "$mod_config_dir/plug.vim" "$HOME/.local/share/nvim/site/autoload/plug.vim"
 fi
