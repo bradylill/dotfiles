@@ -63,6 +63,12 @@ if [[ -x "$(whence -p starship)" ]]; then
   source <(starship init zsh --print-full-init)
 fi
 
+if [[ -x "$(whence -p kubectl)" ]]; then
+  autoload -Uz compinit
+  compinit
+  source <(kubectl completion zsh)
+fi
+
 rename() {
   for i in $1*
   do
