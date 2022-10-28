@@ -146,6 +146,9 @@ require'lspconfig'.clojure_lsp.setup{}
 -- Rust
 require'lspconfig'.rust_analyzer.setup {}
 
+-- Ruby
+require'lspconfig'.solargraph.setup {}
+
 --Telescope
 require('telescope').setup{
   defaults = {
