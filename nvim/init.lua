@@ -2,14 +2,14 @@
 local Plug = vim.fn['plug#']
 
 vim.fn['plug#begin'](vim.fn.stdpath('data') .. '/plugged')
-Plug('neovim/nvim-lspconfig', { commit = '99596a8' })
+Plug('neovim/nvim-lspconfig', { commit = '2315a39' })
 
-Plug('christoomey/vim-tmux-navigator', { commit = '9ca5bfe' })
+Plug('christoomey/vim-tmux-navigator', { commit = 'bd4c38b' })
 
 Plug('nvim-lua/plenary.nvim', { commit = '1da13ad' })
 Plug('nvim-telescope/telescope.nvim', { commit = 'cd9e6aa' })
 Plug('nvim-treesitter/nvim-treesitter', { commit = '26abd5f' })
-Plug('nvim-lualine/lualine.nvim', { commit = 'c12b167' })
+Plug('nvim-lualine/lualine.nvim', { commit = '3325d5d' })
 
 Plug('hrsh7th/nvim-cmp', { commit = '033a817' })
 Plug('hrsh7th/cmp-nvim-lsp', { commit = 'affe808' })
