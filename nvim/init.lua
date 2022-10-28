@@ -13,6 +13,8 @@ Plug('nvim-lualine/lualine.nvim', { commit = 'c12b167' })
 
 Plug('hrsh7th/nvim-cmp', { commit = '033a817' })
 Plug('hrsh7th/cmp-nvim-lsp', { commit = 'affe808' })
+Plug('hrsh7th/vim-vsnip', { commit = '8f199ef' })
+Plug('hrsh7th/cmp-vsnip', { commit = '0abfa18' })
 
 Plug('sheerun/vim-polyglot', { tag = 'v4.17.1' })
 
@@ -101,6 +103,11 @@ map('n', '<leader>dh', ':lua vim.lsp.buf.hover()<cr>')
 local cmp = require'cmp'
 
 cmp.setup {
+  snippet = {
+    expand = function(args)
+      vim.fn['vsnip#anonymous'](args.body)
+    end,
+  },
   sources = {
     { name = 'nvim_lsp' }
   },
