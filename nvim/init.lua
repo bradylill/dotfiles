@@ -32,6 +32,7 @@ vim.opt.termguicolors = true
 vim.opt.background = 'dark'
 vim.g.seoul256_background = 234
 vim.cmd([[ colorscheme seoul256 ]])
+vim.highlight.create('normal', {guibg=000000}, false)
 
 vim.opt.smartindent = true
 vim.opt.expandtab = true
@@ -78,6 +79,8 @@ function toggleDarkMode()
     vim.g.seoul256_background = 234
     vim.cmd([[ colorscheme seoul256 ]])
   end
+
+  vim.highlight.create('normal', {guibg=000000}, false)
 end
 
 -- Keymappings
