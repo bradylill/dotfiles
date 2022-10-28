@@ -6,9 +6,9 @@ Plug('neovim/nvim-lspconfig', { commit = '2315a39' })
 
 Plug('christoomey/vim-tmux-navigator', { commit = 'bd4c38b' })
 
-Plug('nvim-lua/plenary.nvim', { commit = '1da13ad' })
-Plug('nvim-telescope/telescope.nvim', { commit = 'cd9e6aa' })
-Plug('nvim-treesitter/nvim-treesitter', { commit = '26abd5f' })
+Plug ('junegunn/fzf', { commit = '168829b', dir = '~/.fzf', ['do'] = './install --all' })
+Plug ('junegunn/fzf.vim', { commit = '9ceac71' })
+
 Plug('nvim-lualine/lualine.nvim', { commit = '3325d5d' })
 
 Plug('hrsh7th/nvim-cmp', { commit = '033a817' })
@@ -149,19 +149,13 @@ require'lspconfig'.rust_analyzer.setup {}
 -- Ruby
 require'lspconfig'.solargraph.setup {}
 
---Telescope
-require('telescope').setup{
-  defaults = {
-    layout_strategy = 'vertical',
-    layout_config = { height = 0.5 },
-  }
-}
-map('n', '<leader>fa', ':Telescope find_files<cr>')
-map('n', '<leader>ff', ':Telescope git_files<cr>')
-map('n', '<leader>fg', ':Telescope live_grep<cr>')
-map('n', '<leader>fc', ':Telescope grep_string<cr>')
-map('n', '<leader>fb', ':Telescope buffers<cr>')
-map('n', '<leader>fh', ':Telescope help_tags<cr>')
+-- FZF
+map('n', '<leader>fa', ':Files<cr>')
+map('n', '<leader>ff', ':GFiles<cr>')
+map('n', '<leader>fg', ':Rg<cr>')
+map('n', '<leader>fc', ':Commits<cr>')
+map('n', '<leader>fb', ':Buffers<cr>')
+map('n', '<leader>fh', ':Helptags<cr>')
 
 --LuaLine
 require('lualine').setup()
