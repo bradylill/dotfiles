@@ -101,9 +101,9 @@ map('n', '<leader>gd', ':lua vim.lsp.buf.definition()<cr>')
 map('n', '<leader>gt', ':lua vim.lsp.buf.type_definition()<cr>')
 map('n', '<leader>dh', ':lua vim.lsp.buf.hover()<cr>')
 
--- vim.api.nvim_create_autocmd('CursorHold', {
---     command = 'lua vim.lsp.buf.document_highlight()'
---   })
+vim.api.nvim_create_autocmd('CursorHold', {
+  command = 'lua vim.lsp.buf.document_highlight()'
+})
 
 -- nvim-cmp
 local cmp = require'cmp'
@@ -118,13 +118,13 @@ cmp.setup {
     { name = 'nvim_lsp' }
   },
   mapping = cmp.mapping.preset.insert({
-      ['<C-p>'] = cmp.mapping.select_prev_item(),
-      ['<C-n>'] = cmp.mapping.select_next_item(),
-      ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
-      },
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
   })
 }
 
