@@ -20,6 +20,9 @@ Plug('sheerun/vim-polyglot', { tag = 'v4.17.1' })
 
 Plug('junegunn/seoul256.vim', { commit = '8f3dd7d' })
 
+Plug('ggandor/leap.nvim', { commit = 'ba42417' })
+Plug('tpope/vim-repeat', { commit = '24afe92' })
+
 Plug('eraserhd/parinfer-rust', { tag = 'v0.4.3', ['do'] = 'cargo build --release'})
 vim.fn['plug#end']()
 
@@ -160,3 +163,7 @@ map('n', '<leader>fh', ':Helptags<cr>')
 --LuaLine
 require('lualine').setup()
 
+--Leap
+local leap = require('leap')
+leap.add_default_mappings()
+leap.init_highlight(true)
