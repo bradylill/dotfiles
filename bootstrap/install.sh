@@ -48,6 +48,10 @@ nvim() {
   __install "nvim"
 }
 
+aws() {
+  __install "aws"
+}
+
 all() {
   fish
   rust
@@ -55,6 +59,7 @@ all() {
   python
   node
   nvim
+  aws
 }
 
 list() {
