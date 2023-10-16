@@ -2,7 +2,7 @@
 local Plug = vim.fn['plug#']
 
 vim.fn['plug#begin'](vim.fn.stdpath('data') .. '/plugged')
-Plug('neovim/nvim-lspconfig', { commit = '2315a39' })
+Plug('neovim/nvim-lspconfig')
 
 Plug('christoomey/vim-tmux-navigator', { commit = 'bd4c38b' })
 
