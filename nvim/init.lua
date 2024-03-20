@@ -46,6 +46,8 @@ vim.opt.termguicolors = true
 vim.opt.background = 'dark'
 --vim.g.seoul256_background = 234
 vim.cmd([[ colorscheme tokyonight ]])
+vim.api.nvim_set_hl(0, "Normal", { fg = "NONE", bg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalNC", { fg = "NONE", bg = "NONE" })
 
 vim.opt.smartindent = true
 vim.opt.expandtab = true
@@ -94,7 +96,8 @@ function toggleDarkMode()
     vim.cmd([[ colorscheme tokyonight ]])
   end
 
-  --vim.highlight.create('normal', {guibg=000000}, false)
+  vim.api.nvim_set_hl(0, "Normal", { fg = "NONE", bg = "NONE" })
+  vim.api.nvim_set_hl(0, "NormalNC", { fg = "NONE", bg = "NONE" })
 end
 
 -- Keymappings
